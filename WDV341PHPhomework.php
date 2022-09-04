@@ -93,6 +93,7 @@
 	
 		<ul>
 			<li><a href= "https://brianstowell.name/" target= "_blank">Home Page</a></li>
+			<li><a href= "GitTermsResearch.htm" target= "_blank">Git Terms</a></li>
 			
 		</ul>
 		
