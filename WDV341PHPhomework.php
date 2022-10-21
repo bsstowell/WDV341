@@ -1,107 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>WDV341 Intro PHP Homework Page</title>
-	
-	<style>
-	
-	body { 
-				background-image:url("images_index/grey_wash_wall.png"); 
-				font-family: Trebuchet MS, Helvetica, sans-serif;
-				}
-				
-			h1 { 
-				color: midnightblue;
-				background-color: darkgray;
-				padding:20px;
-				margin:20px;
-				text-align:center;
-				border-style:groove;
-				text-transform:uppercase;
-				}
-				
-			h2	{
-				color: darkgray;
-				background-color: midnightblue;
-				padding:20px;
-				border-style:groove;
-				margin:20px;
-				text-align:center;
-				}
-				
-			
-			
-			ul {
-				list-style-type: none;
-				overflow:hidden;
-				background-color: darkgray;
-				text-align:center;
-				border-style:groove;
-				margin:20px;
-				padding:0px;
-				}
 
-			li {
-				float:left;
-				border-right: 1px solid gray;
-				}
+	<title>WDV341 Intro PHP</title>
+	<!--
+			Author: Brian Stowell
+			Date: 09/11/2022
+		-->
+	<link href="styles.css" rel="stylesheet" type="text/css">
 
-			li a {
-				display:block;
-				color: midnightblue;
-				text-align: center;
-				padding: 14px;
-				text-decoration:none;
-				
-					}
+	<link href="styles.scss" rel="stylesheet" type="text/css">
 
-			li a:hover {
-				background-color: orangered;
-				}
-			
-			img {
-				display:block;
-				margin-left:auto;
-				margin-right:auto;
-				border-style:groove;
-				padding:20px;
-				background-color:orangered;
-			}
-			
-			p	{
-				border-style:groove;
-				background-color:midnightblue;
-				color:gray;
-				margin:20px;
-				padding:20px;
-				font-weight:bold;
-			}
-			
-		</style>
-		
-		
-	</head>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 <body>
-	
-	
-	<h1>WDV341 Intro PHP</h1>
-	<h2>PHP Homework and Projects</h2>
-	
-	
-		<ul>
-			<li><a href= "https://brianstowell.name/" target= "_blank">Home Page</a></li>
-			<li><a href= "GitTermsResearch.htm" target= "_blank">Git Terms</a></li>
-			
-		</ul>
-		
-		<img class="floatCenter" src="images_index/mile_high.jpg">
-		
-		<p>
-		Copyright &copy; All Rights Reserved. Brian Stowell, Institute of Higher Learning
-		</p>
-	
+
+	<div class="container">
+
+		<header>
+			<h1>WDV341 Intro to PHP</h1>
+			<h2>Homework Page</h2>
+		</header>
+
+		<nav>
+			<ul>
+				<li><a href="https://brianstowell.name" target="_blank">Home Page</a></li>
+				<li><a href="GitTermsResearch.htm" target="_blank">Git Terms</a></li>
+				<li><a href="PHPbasics.php" target="_blank">PHP Basics</a></li>
+				<li><a href="Functions assignment.php" target="_blank">PHP Fuctions</a></li>
+				<li><a href="Form_Processor_Unit5/formProcessor.html" target="_blank">Form Handler</a></li>
+				<li><a href="selectEvents.php" target="_blank">Select Events from Database</a></li>
+				<li><a href="selectOneEvent.php" target="_blank">Select One Event</a></li>
+				<li><a href="formatted-products/retail-products.php" target="_blank">PHP Formatted Content</a></li>
+				<li><a href="PHP-JSONEventObject.php" target="_blank">JSON Event Object</a></li>
+			</ul>
+		</nav>
+
+		<div class="alignBox">
+			<p>
+				<image src="images/me2.png" height="400" width="400"></image>
+			</p>
+		</div>
+
+		<footer>
+			<p>
+				Copyright &copy 2022, All Rights Reserved. Brian Stowell, DMACC.
+			</p>
+		</footer>
+
+	</div>
+
 </body>
+
 </html>

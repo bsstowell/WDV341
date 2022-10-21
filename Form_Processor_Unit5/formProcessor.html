@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>WDV341 Intro php</title>
+
+<style>
+
+	form	{
+		width:600px;
+		margin:auto;
+		background-color:rgb(41, 8, 78);	
+    color: white;
+		padding: 20px;
+	}
+	
+	form legend	{
+		font-size:larger;
+		text-align:center;
+	}
+	
+	
+
+
+</style>
+
+</head>
+
+<body>
+<h1>WDV341 Intro PHP</h1>
+<h2>UNIT 5 - PHP Form Processing</h2>
+<p>This is an input form that will demonstrate how a form connects to a server side process.</p>
+<form id="form1" name="form1" method="post" action="formHandler.php">
+
+  <legend>Example PHP Form Processor</legend>
+  
+  <p>
+  	<label for="first_name">First Name:</label> 
+    <input type="text" name="first_name" id="first_name" />
+  </p>
+  
+  <p>
+  	<label for="last_name">Last Name:</label> 
+    <input type="text" name="last_name" id="last_name" />
+  </p>
+
+  <p>
+    <label for="email_address">Email Address:</label>
+    <input type="email" name="email_address" id="email_address" />
+  </p>
+  <br>
+
+  <p>
+    <p>Current Academic Year:</p>
+    <label><input type="radio" name="year" value="High School Student"> High School</label><br>
+    <label><input type="radio" name="year" value="Freshman"> Freshman</label><br>
+    <label><input type="radio" name="year" value="Sophomore"> Sophomore</label><br>
+</p>
+<br>
+
+  <p>
+    <select name="majors">
+      <option value="n/a">Select Major</option>
+      <option value="CIS">Computer Information Systems</option>
+      <option value="GRD">Graphic Design</option>
+      <option value="WDV">Web Development</option>
+    </select>
+</p>
+
+  <p>
+    <input type="checkbox" name="info" value="Program information regarding your selected Major."><label> Please contact me with program information.</label><br>
+    <input type="checkbox" name="advise" value="Contact information for your advisor."> <label>I would like to contact a program advisor.</label>
+
+  </p>
+  <br>
+
+  <p>Comments: <textarea name="comments" rows="5" cols="40"></textarea></p>
+  <br>
+  <p>
+    <input type="submit" name="button" id="button" value="Submit" />
+    <input type="reset" name="button2" id="button2" value="Reset" />
+  </p>
+  
+</form>
+
+<p>&nbsp;</p>
+</body>
+
+</html>
