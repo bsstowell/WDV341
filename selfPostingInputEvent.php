@@ -8,38 +8,30 @@ $dataProcessed = false;
         //display message form processed successfully
        // echo "<h1>The form has been submitted and will be processed into the database.</h1>";
 
+        $eventsName = $_POST['events_name'];
+        $eventsDescription = $_POST['events_description'];
+        $eventsPresenter = $_POST['events_presenter'];
+        $eventsDate = $_POST['events_date'];
+        $eventsTime = $_POST['events_time'];
     
-       /* form data before applying filter to sanitize data
-       $newsFirstName = $_POST['first_name'];
-        $newsLastName = $_POST['last_name'];
-        $newsEmail = $_POST['email'];
+    
+        require_once('dbConnect.php');
 
-        echo $newsFirstName,$newsLastName,$newsEmail;
-        */
+        $eventsDate = date('m-d-Y', strtotime($eventsDate));
+        //$eventsTime = date('H:i', strtotime($eventsTime));
 
-        $newsFirstName = filter_var( $_POST['first_name'], FILTER_SANITIZE_STRING );
-        $newsLastName = filter_var( $_POST['last_name'], FILTER_SANITIZE_STRING );
-        $newsEmail = filter_var( $_POST['email'], FILTER_SANITIZE_EMAIL );
+        $sql = "INSERT INTO wdv341_events (events_name, events_description, events_presenter, events_date, events_time)
+        VALUES (:eventsName, :eventsDescription, :eventsPresenter, :eventsDate, :eventsTime)";
 
+        $stmt= $conn->prepare($sql);
 
-        require_once('../database/dbConnect.php');
+        $stmt->bindParam(':eventsName',$eventsName);
+        $stmt->bindParam(':eventsDescription',$eventsDescription);
+        $stmt->bindParam(':eventsPresenter',$eventsPresenter);
+        $stmt->bindParam(':eventsDate',$eventsDate);
+        $stmt->bindParam(':eventsTime',$eventsTime);
 
-        $sql = "INSERT INTO wdv_newsletter (news_first_name, news_last_name, news_email)
-        VALUES (:firstName, :lastName, :email)";
-
-        try{
-            $stmt= $conn->prepare($sql);
-
-            $stmt->bindParam(':firstName',$newsFirstName);
-            $stmt->bindParam(':lastName',$newsLastName);
-            $stmt->bindParam(':email',$newsEmail);
-
-            $stmt->execute();
-        }
-        catch(PDOException $e){
-            //very basic error handling process - if an error - print a message
-            echo "Connection failed: " . $e->getMessage();
-        }
+        $stmt->execute();
 
         $dataProcessed = true;  //act as a flag or switch to use later
     
@@ -51,7 +43,7 @@ $dataProcessed = false;
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>WDV 341 Intro PHP - Code Example</title>
+    <title>WDV 341 Intro PHP - Self Posting Input Event Form</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -61,9 +53,8 @@ $dataProcessed = false;
 
 <body>
     <header>
-        <h1>WDV341 Intro <span>PHP</span></h1>
-        <h3>Newsletter Registration</h3>
-        <p>Form Handler Result Page - Code Example</p>
+        <h1>WDV341 Intro PHP</h1>
+        <h3>Self Posting Input Event Form</h3>
     </header>
 
     <?php
@@ -72,8 +63,7 @@ $dataProcessed = false;
     ?>
 
         <section>
-            <p>Thank you for joining our newsletter. We look forward to communicating with you.</p>
-
+            <p>Thank you for entering your event information. We look forward to your event!</p>
         </section>
 
         <?php
@@ -83,21 +73,29 @@ $dataProcessed = false;
         ?>
             <section>
             
-                <h2>Newsletter Signup</h2>
-                <p>Please enter your full name and email to recieve our super sweet newsletter!</p>
+                <h2>Event Signup</h2>
+                <p>Please enter your event information in the form below.</p>
                
-                <form id="newsletter-form" name="newsletter_form" method="post" action="newsletterProcess.php">
+                <form id="event-form" name="event_form" method="post" action="selfPostingInputEvent.php">
                     <p>
-                        <label for="">First Name:</label> 
-                        <input type="text" name="first_name" id="first-name" />
+                        <label for="">Event Name:</label> 
+                        <input type="text" name="events_name" id="events-name" />
                     </p>
                     <p>
-                        <label for="">Last Name:</label>
-                        <input type="text" name="last_name" id="last-name" />
+                        <label for="">Event Description:</label>
+                        <input type="text" name="events_description" id="events-description" />
                     </p>
                     <p>
-                        <label for="">Email:</label> 
-                        <input type="text" name="email" id="email" />
+                        <label for="">Event Presenter:</label> 
+                        <input type="text" name="events_presenter" id="events-presenter" />
+                    </p>
+                    <p>
+                        <label for="">Event Date:</label> 
+                        <input type="text" name="events_date" id="events-date" value="<?php echo date('m-d-Y'); ?>" />
+                    </p>
+                    <p>
+                        <label for="">Event Time:</label> 
+                        <input type="text" name="events_time" id="events-time" value="<?php echo date('H:i'); ?>" />
                     </p>
                     <p>
                         <input type="submit" name="submit" id="button" value="Submit" />
