@@ -37,7 +37,7 @@
 				<li><a href="formatted-products/retail-products.php" target="_blank">PHP Formatted Content</a></li>
 				<li><a href="PHP-JSONEventObject.php" target="_blank">JSON Event Object</a></li>
 				<li><a href="selfPostingInputEvent.php" target="_blank">Self Posting Input Form</a></li>
-
+				<li><a href="eventsForm.php" target="_blank">Events Form</a></li>
 			</ul>
 		</nav>
 
