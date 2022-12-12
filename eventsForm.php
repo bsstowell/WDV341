@@ -120,6 +120,15 @@ section {
 
 </style>
 
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf9XBMjAAAAAGQoI08F5ku6AkYFVJEkTDLSr5Jf"></script>
+<script>
+grecaptcha.enterprise.ready(function() {
+    grecaptcha.enterprise.execute('6Lf9XBMjAAAAAGQoI08F5ku6AkYFVJEkTDLSr5Jf', {action: 'login'}).then(function(token) {
+       ...
+    });
+});
+</script>
+
 </head>
 
 <body>
