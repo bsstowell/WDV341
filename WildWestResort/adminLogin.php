@@ -146,7 +146,7 @@ else{
                 <br><br>Welcome Back <?php echo $inUsername; ?>!
                 <br><br>
                     <p id="button"><a href="addRecord.php">Add a Reservation to the Database</a></p><br>
-                    <p id="button"><a href="reservationList.php">Display/Delete Database Records</a></p><br>
+                    <p id="button"><a href="reservationList.php">Display / Update / Delete Database Records</a></p><br>
                     <p id="button"><a href="logout.php">Log Off</a></p><br>
                 </h4>
             </div>

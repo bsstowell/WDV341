@@ -8,6 +8,92 @@
 
     $successfulUpdate = false;
 
+    if(isset($_POST['submit'])){
+        //if the form has been seen by the user AND submitted by the user
+        //Do the UPDATE
+    
+       //echo "<h1>Form has been submitted!</h1>";
+    
+        //get the data from the $_POST variable
+        $guestId = $_GET['guestId'];
+        $guestName = $_GET['guest_name'];
+        $guestEmail = $_POST['guest_email'];
+        $arrivalDate = $_POST['arrival_date'];
+        $departureDate = $_POST['departure_date'];
+        $roomTheme = $_POST['room_theme'];
+
+        //connect to database 
+        try {
+            require_once('dbConnectServer.php');
+    
+            $sql = "UPDATE guest_reservations 
+                    SET guest_name = :guestName,
+                       guest_email = :guestEmail,
+                       arrival_date = :arrivalDate,
+                       departure_date = :departureDate,
+                       room_theme = :roomTheme
+                    WHERE guest_id = :guestId";
+    
+            //echo "<p>$sql</p>";
+    
+            $stmt = $conn->prepare($sql);
+    
+            echo "<p>$guestId</p>";
+            echo "<p>$guestName</p>";
+            echo "<p>$guestEmail</p>";
+            echo "<p>$arrivalDate</p>";
+            echo "<p>$departureDate</p>";
+            echo "<p>$roomTheme</p>";
+
+            $stmt->bindParam(':guestId',$guestId);
+            $stmt->bindParam(':guestName',$guestName);
+            $stmt->bindParam(':guestEmail',$guestEmail);
+            $stmt->bindParam(':arrivalDate',$arrivalDate);
+            $stmt->bindParam(':departureDate',$departureDate);
+            $stmt->bindParam(':roomTheme',$roomTheme);
+
+            $stmt->execute();  
+            
+            $successfulUpdate = true;       //use this to switch on the confirmation message
+        }
+        catch(PDOException $e) {
+            echo "Problems updating the record from reservation table." . $e->getMessage();
+        }
+        //if everthing works I have updated the record
+        //provide a confirmation message
+    
+    }
+    else{
+        //need to get the record from the database and display the field values on the form
+        //display the form
+    
+        $guestId = $_GET["guestId"];    //should pull the value from the Get parameter
+    
+        //echo "<h1>Update guestid $guestId</h1>";
+        try {
+            require_once('dbConnectServer.php');
+    
+            $sql = "SELECT  guest_id, 
+                            guest_name, 
+                            guest_email, 
+                            arrival_date,
+                            departure_date,
+                            room_theme
+                    FROM guest_reservations 
+                    WHERE guest_id = :guestId";
+    
+            $stmt = $conn->prepare($sql);
+    
+            $stmt->bindParam(':guestId',$guestId);
+    
+            $stmt->execute();         
+        }
+        catch(PDOException $e) {
+            echo "Problems updating the record from the table." . $e->getMessage();
+        }
+        //I should have one record in the result from the database
+        $row = $stmt->fetch();      //get the field data into an associative arrays
+    }    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +152,7 @@
                 <h2 style="color:white">Administrative Area</h2>
 
                <?php
+              
                 if($successfulUpdate) {
                     ?>
                         
@@ -73,7 +160,7 @@
                     <p style="font-size:25px;text-align:center">
                        The guest reservation was updated successfully. Thank you.</p>
                     <button id="button"><a href="adminLogin.php">Back to Admin</a></button>
-                </div> 
+                    </div> 
                   
                 <?php
                  }
@@ -92,11 +179,11 @@
                     </p>
                     <p>
                         <label for="" class="formatLabel">Arrival Date:</label> 
-                        <input type="text" name="arrival" id="arrival" value="<?php echo $row['arrival_date']; ?>" />
+                        <input type="date" name="arrival" id="arrival" value="<?php echo $row['arrival_date']; ?>" />
                     </p>
                     <p>
                         <label for="" class="formatLabel">Departure Date:</label> 
-                        <input type="text" name="departure" id="departure" value="<?php echo $row['departure_date']; ?>" />
+                        <input type="date" name="departure" id="departure" value="<?php echo $row['departure_date']; ?>" />
                     </p>
                     <p>
                             <label for="theme" class="formatLabel">Room Themes:</label>

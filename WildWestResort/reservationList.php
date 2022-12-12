@@ -17,7 +17,7 @@
     */
     require 'dbConnectServer.php';
 
-    $sql = "SELECT guest_id, guest_name, guest_email, arrival_date, departure_date, room_theme, date_inserted, date_updated FROM guest_reservations ORDER BY guest_name";
+    $sql = "SELECT guest_id, guest_name, guest_email, arrival_date, departure_date, room_theme FROM guest_reservations ORDER BY guest_name";
 
     $stmt = $conn->prepare($sql);       //prepare your statement
 
