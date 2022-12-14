@@ -58,11 +58,11 @@
               <header style="background-image: url('images/wood-background.jpg'); padding-bottom: 20px">
                 <h1 style="color:white">Wild West Resort</h1>
 
-                <div class="flex-container-3" style="height:500px;width:80%;padding-top:25px">
+                <div class="flex-container-3" style="height:560px;width:80%;padding-top:25px">
                     <p style="font-size:25px">
                        Thank you for your reservation and payment! Your transaction has been completed.
-                       Log into your PayPal account to view transaction details.</p> 
-                    <p style="font-size:25px">We look forward to seeing you at the Wild West Resort soon!</p> 
+                       Log into your PayPal account to view transaction details.<br><br>
+                       We look forward to seeing you at the Wild West Resort soon!</p> 
                 </div> 
                 </header>
 

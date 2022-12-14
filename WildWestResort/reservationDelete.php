@@ -26,13 +26,17 @@
         $stmt->bindParam(':guestId', $guestId);
 
         $stmt->execute();
+
+        ?>
+        <p style="font-size:25px;text-align:center">
+        The guest reservation was updated successfully. Thank you.</p>
+
+        <?php
+        header('Location: reservationList.php');
+        
     }
     catch(PDOException $e){
         echo "Problems deleting record from table " . $e->getMessage();
     }
-
-    header('Location: reservationList.php'); //when finished return to eventList and display events
-
-    echo "Guest Reservation was successfully deleted from the database."
 
 ?>

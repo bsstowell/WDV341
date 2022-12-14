@@ -1,75 +1,55 @@
 <?php
- //error_reporting(E_ALL ^ E_NOTICE);
-
  session_start();
     if ($_SESSION['validUser'] !== "yes") {
         header('Location: adminLogin.php');
     }
 
-    $successfulUpdate = false;
+    $successfulUpdate = false; 
 
     if(isset($_POST['submit'])){
-        //if the form has been seen by the user AND submitted by the user
-        //Do the UPDATE
-    
-       //echo "<h1>Form has been submitted!</h1>";
-    
-        //get the data from the $_POST variable
+
+
+        //echo "form been submitted.";
         $guestId = $_GET['guestId'];
-        $guestName = $_GET['guest_name'];
+        $guestName = $_POST['guest_name'];
         $guestEmail = $_POST['guest_email'];
         $arrivalDate = $_POST['arrival_date'];
         $departureDate = $_POST['departure_date'];
         $roomTheme = $_POST['room_theme'];
 
-        //connect to database 
         try {
             require_once('dbConnectServer.php');
     
-            $sql = "UPDATE guest_reservations 
+            $sql = "UPDATE guest_reservations
                     SET guest_name = :guestName,
-                       guest_email = :guestEmail,
-                       arrival_date = :arrivalDate,
-                       departure_date = :departureDate,
-                       room_theme = :roomTheme
+                        guest_email = :guestEmail,
+                        arrival_date = :arrivalDate,
+                        departure_date = :departureDate,
+                        room_theme = :roomTheme
                     WHERE guest_id = :guestId";
-    
-            //echo "<p>$sql</p>";
     
             $stmt = $conn->prepare($sql);
     
-            echo "<p>$guestId</p>";
-            echo "<p>$guestName</p>";
-            echo "<p>$guestEmail</p>";
-            echo "<p>$arrivalDate</p>";
-            echo "<p>$departureDate</p>";
-            echo "<p>$roomTheme</p>";
-
             $stmt->bindParam(':guestId',$guestId);
-            $stmt->bindParam(':guestName',$guestName);
+            $stmt->bindParam(':guestName',$guestName); 
             $stmt->bindParam(':guestEmail',$guestEmail);
             $stmt->bindParam(':arrivalDate',$arrivalDate);
             $stmt->bindParam(':departureDate',$departureDate);
             $stmt->bindParam(':roomTheme',$roomTheme);
-
+    
             $stmt->execute();  
             
-            $successfulUpdate = true;       //use this to switch on the confirmation message
+            $successfulUpdate = true; 
         }
         catch(PDOException $e) {
-            echo "Problems updating the record from reservation table." . $e->getMessage();
+            echo "Problems updating the record back to the database." . $e->getMessage();
         }
-        //if everthing works I have updated the record
-        //provide a confirmation message
-    
     }
     else{
-        //need to get the record from the database and display the field values on the form
-        //display the form
-    
-        $guestId = $_GET["guestId"];    //should pull the value from the Get parameter
-    
-        //echo "<h1>Update guestid $guestId</h1>";
+
+        $guestId = $_GET['guestId'];
+        echo "update guestid $guestId";
+
         try {
             require_once('dbConnectServer.php');
     
@@ -89,11 +69,11 @@
             $stmt->execute();         
         }
         catch(PDOException $e) {
-            echo "Problems updating the record from the table." . $e->getMessage();
+            echo "Problems getting the record from the database." . $e->getMessage();
         }
-        //I should have one record in the result from the database
-        $row = $stmt->fetch();      //get the field data into an associative arrays
-    }    
+
+        $row = $stmt->fetch();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,51 +132,50 @@
                 <h2 style="color:white">Administrative Area</h2>
 
                <?php
-              
                 if($successfulUpdate) {
                     ?>
                         
-                    <div class="flex-container" style="height:500px;width:70%;background-color: lightgray">
+                   <div class="flex-container" style="height:500px;width:70%;background-color: lightgray">
                     <p style="font-size:25px;text-align:center">
                        The guest reservation was updated successfully. Thank you.</p>
                     <button id="button"><a href="adminLogin.php">Back to Admin</a></button>
                     </div> 
                   
                 <?php
-                 }
-                 else {
+                }
+                 else { 
                 ?>
 
                 <form id="reservation" name="reservation" method="post" action="updateForm.php?guestId=<?php echo $row['guest_id']; ?>" style="background-color:black;color:white">
                     <h2>Room Reservation Update Form</h2>
                     <p>
                         <label for="" class="formatLabel">Name:</label> 
-                        <input type="text" name="name" id="name"  value="<?php echo $row['guest_name']; ?>" />
+                        <input type="text" name="guest_name" id="guest_name" value="<?php echo $row['guest_name']; ?>" />
                     </p>
                     <p>
                         <label for="" class="formatLabel">Email:</label>
-                        <input type="text" name="email" id="email" value="<?php echo $row['guest_email']; ?>"/>
+                        <input type="text" name="guest_email" id="guest_email" value="<?php echo $row['guest_email']; ?>"/>
                     </p>
                     <p>
                         <label for="" class="formatLabel">Arrival Date:</label> 
-                        <input type="date" name="arrival" id="arrival" value="<?php echo $row['arrival_date']; ?>" />
+                        <input type="date" name="arrival_date" id="arrival_date" value="<?php echo $row['arrival_date']; ?>" />
                     </p>
                     <p>
                         <label for="" class="formatLabel">Departure Date:</label> 
-                        <input type="date" name="departure" id="departure" value="<?php echo $row['departure_date']; ?>" />
+                        <input type="date" name="departure_date" id="departure_date" value="<?php echo $row['departure_date']; ?>" />
                     </p>
                     <p>
                             <label for="theme" class="formatLabel">Room Themes:</label>
-                            <select id="theme" name="theme" value="<?php echo $row['room_theme']; ?>">
+                            <select id="room_theme" name="room_theme" >
                                 <option value="">Choose a Theme</option>
-                                <option value="earp">Wyatt Earp</option>
-                                <option value="oakley">Annie Oakley</option>
-                                <option value="kid">Billy the Kid</option>
-                                <option value="sac">Sacagawea</option>
-                                <option value="james">Jesse James</option> 
-                                <option value="jane">Calamity Jane</option>
-                                <option value="bill">Buffalo Bill</option>
-                                <option value="doc">Doc Holliday</option>
+                                <option value="earp" <?php if($row['room_theme'] == 'earp') echo "selected"; ?> >Wyatt Earp</option>
+                                <option value="oakley" <?php if($row['room_theme'] == 'oakley') echo "selected"; ?> >Annie Oakley</option>
+                                <option value="kid" <?php if($row['room_theme'] == 'kid') echo "selected"; ?> >Billy the Kid</option>
+                                <option value="sac" <?php if($row['room_theme'] == 'sac') echo "selected"; ?> >Sacagawea</option>
+                                <option value="james" <?php if($row['room_theme'] == 'james') echo "selected"; ?> >Jesse James</option>  
+                                <option value="jane" <?php if($row['room_theme'] == 'jane') echo "selected"; ?> >Calamity Jane</option>
+                                <option value="bill" <?php if($row['room_theme'] == 'bill') echo "selected"; ?> >Buffalo Bill</option>
+                                <option value="doc" <?php if($row['room_theme'] == 'doc') echo "selected"; ?> >Doc Holliday</option>
                             </select>
                         </p>
                     <p>

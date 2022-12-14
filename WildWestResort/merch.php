@@ -99,8 +99,7 @@
 				        <figure class="figure">
 					        <img src="images/long_sleeve.jpg" height="200" width="200" class="center codyMap">
 					        <caption style="color:white"><br>This long-sleeve Cody, Wyoming shirt will sell fast! One of 
-                                our biggest sellers each year, grab one while they're still available and 
-                                let everyone know about your time at the Wild West Resort!
+                                our biggest sellers each year, grab one while they're still available!
                             </caption>
                             <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" style="background-color: rgb(173, 159, 29);border:none;text-align:center">
                                 <input type="hidden" name="cmd" value="_s-xclick">

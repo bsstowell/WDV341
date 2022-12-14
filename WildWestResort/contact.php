@@ -126,16 +126,16 @@
                         <h2>Contact Us</h2>
                         <p>
                             <label for="" class="formatLabel">Name:</label> 
-                            <input type="text" name="name" id="name" />
+                            <input type="text" name="name" id="name" required />
                             <input type="text" name="name_test" id="name_test" /> 
                         </p>
                         <p>
                             <label for="" class="formatLabel">Email:</label>
-                            <input type="text" name="email" id="email" />
+                            <input type="text" name="email" id="email" required />
                         </p>
                             <p>
                                 <label for="theme" class="formatLabel">Reason for Contact:</label>
-                                <select id="theme" name="theme">
+                                <select id="theme" name="theme" required>
                                     <option value="">Choose a Reason</option>
                                     <option value="rates">Room Rates</option>
                                     <option value="room themes">Room Themes</option>
@@ -145,7 +145,7 @@
                             </p>
                             <p>
                                 <label for="" class="formatLabel">Message:</label>
-                                <textarea name="comments" id="comments" rows="5" cols="55"></textarea>
+                                <textarea name="comments" id="comments" rows="5" cols="55" required></textarea>
                             </p>
                             <p>
                             <div class="g-recaptcha" data-sitekey="6LcrIFsjAAAAAOX8aVqZqu1kA_InCfTZ4BsGH8GA" style="margin-left:auto;margin-right:auto"></div>

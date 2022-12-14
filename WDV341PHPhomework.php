@@ -38,6 +38,12 @@
 				<li><a href="PHP-JSONEventObject.php" target="_blank">JSON Event Object</a></li>
 				<li><a href="selfPostingInputEvent.php" target="_blank">Self Posting Input Form</a></li>
 				<li><a href="eventsForm.php" target="_blank">Events Form</a></li>
+				<li><a href="https://lucid.app/lucidspark/fe594afa-b401-45da-b646-4d525d512571/edit?viewport_loc=-1354%2C-1205%2C4608%2C2230%2C0_0&invitationId=inv_7868028b-f1b3-495e-a7ae-d45b130bdc1b" target="_blank">Portfolio Wireframes</a></li>
+				<li><a href="login.php"target="_blank">Login/Logout Form</a></li>
+				<li><a href="WildWestResort/contact.php"target="_blank">Contact Form with Email</a></li>
+				<li><a href="updateForm.php"target="_blank">Database Update Form</a></li>
+				<li><a href="WildWestResort/index.php"target="_blank">Portfolio Project</a></li>
+
 			</ul>
 		</nav>
 

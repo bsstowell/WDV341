@@ -128,24 +128,24 @@ try {
                     <p>Please enter the guest's reservation information in the form below.</p>
                     <p>
                         <label for="" class="formatLabel">Name:</label> 
-                        <input type="text" name="name" id="name" />
+                        <input type="text" name="name" id="name" required />
                         <input type="text" name="name_fake" id="name_test" /> 
                     </p>
                     <p>
                         <label for="" class="formatLabel">Email:</label>
-                        <input type="text" name="email" id="email" />
+                        <input type="text" name="email" id="email" required />
                     </p>
                     <p>
                         <label for="" class="formatLabel">Arrival Date:</label> 
-                        <input type="date" name="arrival" id="arrival" />
+                        <input type="date" name="arrival" id="arrival" required/>
                     </p>
                     <p>
                         <label for="" class="formatLabel">Departure Date:</label> 
-                        <input type="date" name="departure" id="departure" />
+                        <input type="date" name="departure" id="departure" required />
                     </p>
                     <p>
                             <label for="theme" class="formatLabel">Room Themes:</label>
-                            <select id="theme" name="theme">
+                            <select id="theme" name="theme" required>
                                 <option value="">Choose a Theme</option>
                                 <option value="earp">Wyatt Earp</option>
                                 <option value="oakley">Annie Oakley</option>

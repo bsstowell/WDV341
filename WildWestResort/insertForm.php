@@ -120,24 +120,24 @@ catch(PDOException $e) {
                        Thank you for your reservation! <br>Please click on the PayPal button 
                        below to submit your payment and complete the reservation process.
                        <br><br>We look forward to seeing you at Wild West Resort!  
-                    </p>
 
                     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" style="background-color: rgb(90,0,0);border:none;text-align:center">
                         <input type="hidden" name="cmd" value="_s-xclick">
                         <input type="hidden" name="hosted_button_id" value="F47YTA5D8NUKJ">
-                        <table>
+                        <table class="flex-container-3">
                         <tr><td><input type="hidden" name="on0" value="Price/NIght">Price/Night</td></tr><tr><td><select name="os0">
                             <option value="1 Night">1 Night $327.00 USD</option>
                             <option value="2 Nights">2 Nights $595.00 USD</option>
                             <option value="3 Nights">3 Nights $799.00 USD</option>
                         </select> </td></tr>
                         </table>
-                    <div>
+                    <div class="flex-container-3">
                         <input type="hidden" name="currency_code" value="USD">
                         <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" width="170px" height="auto" text-align="center" align-items="center">
                         <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </div>
                     </form>
+                    </p>
 
                 </div> 
 
@@ -152,24 +152,24 @@ catch(PDOException $e) {
                     <p>Please enter your reservation information in the form below.</p>
                     <p>
                         <label for="" class="formatLabel">Name:</label> 
-                        <input type="text" name="name" id="name" />
+                        <input type="text" name="name" id="name" required/>
                         <input type="text" name="name_fake" id="name_test" /> 
                     </p>
                     <p>
                         <label for="" class="formatLabel">Email:</label>
-                        <input type="text" name="email" id="email" />
+                        <input type="text" name="email" id="email" required />
                     </p>
                     <p>
                         <label for="" class="formatLabel">Arrival Date:</label> 
-                        <input type="date" name="arrival" id="arrival" />
+                        <input type="date" name="arrival" id="arrival" required/>
                     </p>
                     <p>
                         <label for="" class="formatLabel">Departure Date:</label> 
-                        <input type="date" name="departure" id="departure" />
+                        <input type="date" name="departure" id="departure" required/>
                     </p>
                     <p>
                             <label for="theme" class="formatLabel">Room Themes:</label>
-                            <select id="theme" name="theme">
+                            <select id="theme" name="theme" required>
                                 <option value="">Choose a Theme</option>
                                 <option value="earp">Wyatt Earp</option>
                                 <option value="oakley">Annie Oakley</option>

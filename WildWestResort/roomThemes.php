@@ -133,7 +133,7 @@
         <p>1942 Buffalo Bill Street<br>
         Cody, Wyoming 82414<br>
         307-527-1234<br>
-        WildWestResortWyoming@gmail.com</p>
+        WildWestResort@gmail.com</p>
       </div>
 
       <div>

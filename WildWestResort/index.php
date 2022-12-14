@@ -56,6 +56,7 @@
     
               <header>
                 <h1>Wild West Resort</h1>
+                <h5>Academic Purposes - Not a Real Site</h5>
 
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-indicators">
@@ -94,14 +95,13 @@
                     <div style="max-width:100%;overflow:hidden;color:red;width:980px;height:400px;"><div id="embedded-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Cody,+WY,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe></div><a class="embed-map-html" href="https://kbj9qpmy.com/hrn" id="enable-map-data">hostingrightnow.com</a><style>#embedded-map-display img.text-marker{max-width:none!important;background:none!important;}img{max-width:none}</style></div>
               </section>    
          
-              <section class="flex-container">
+              <section class="flex-container" style="padding-bottom:20px">
                   <p style="width:90%;text-align:left">The surrounding area allows for plenty of daytime adventures including hiking, museums, swimming, and local restaurants
                       and bars.</p> 
                   <p style="width:90%;text-align:center">Come to Cody, Wyoming: the Gateway to the Wild West! </p>
-                   </section>
-                   <section class="flex-container">
+                  
                    <img src="images/map.jpg" width="500px" style="max-width:100%;overflow:auto;" class="codyMap">   
-                    </section>
+              </section>
   
     <footer>
 
@@ -109,7 +109,7 @@
         <p>1942 Buffalo Bill Street<br>
         Cody, Wyoming 82414<br>
         307-527-1234<br>
-        WildWestResortWyoming@gmail.com</p>
+        WildWestResort@gmail.com</p>
       </div>
 
       <div>
